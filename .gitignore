@@ -1,0 +1,41 @@
+# Virtual Environment & Python cache
+.venv/
+venv/
+ENV/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+build/
+dist/
+
+# OmniCode Config & State
+.omnicode/
+.omnicode*/
+omnicode_config.json
+config.json
+
+# API Keys & Secrets
+*apikey*
+*.api_keys.json
+.api_keys.json
+.api_key_state.json
+credentials.json
+secrets.json
+keys.json
+token.json
+tokens.json
+auth.json
+*.pem
+*.key
+ollama api keys
+
+# Environment Variables
+.env
+.env.*
+!.env.example
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local

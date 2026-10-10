@@ -1,0 +1,63 @@
+// ==========================================
+// C PROGRAMMING DATASET
+// ==========================================
+
+// Task: Hello World in C
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(void) {
+    printf("Hello, World!\n");
+    return 0;
+}
+
+// Task: Singly Linked List Node and insertion
+struct Node {
+    int data;
+    struct Node *next;
+};
+
+struct Node* insert_at_head(struct Node *head, int new_data) {
+    struct Node *new_node = (struct Node*)malloc(sizeof(struct Node));
+    if (new_node == NULL) {
+        fprintf(stderr, "Memory allocation error\n");
+        return head;
+    }
+    new_node->data = new_data;
+    new_node->next = head;
+    return new_node;
+}
+
+void print_list(struct Node *node) {
+    while (node != NULL) {
+        printf("%d -> ", node->data);
+        node = node->next;
+    }
+    printf("NULL\n");
+}
+
+// Task: Dynamic array allocation and sum calculation
+int calculate_sum(const int *arr, int size) {
+    int total = 0;
+    for (int i = 0; i < size; i++) {
+        total += arr[i];
+    }
+    return total;
+}
+
+// Task: String length without standard library
+int custom_strlen(const char *str) {
+    int length = 0;
+    while (str[length] != '\0') {
+        length++;
+    }
+    return length;
+}
+
+// Task: Swap two integers using pointers
+void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}

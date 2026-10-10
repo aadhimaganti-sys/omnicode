@@ -1,0 +1,71 @@
+# ==========================================
+# PYTHON CODING DATASET
+# ==========================================
+
+# Task: Hello World in Python
+print("Hello, World!")
+
+# Task: Calculate factorial recursively
+def factorial(n: int) -> int:
+    """Return the factorial of a non-negative integer n."""
+    if n <= 1:
+        return 1
+    return n * factorial(n - 1)
+
+# Task: Check if a number is prime
+def is_prime(number: int) -> bool:
+    if number < 2:
+        return False
+    for i in range(2, int(number ** 0.5) + 1):
+        if number % i == 0:
+            return False
+    return True
+
+# Task: Quick sort algorithm
+def quicksort(arr: list[int]) -> list[int]:
+    if len(arr) <= 1:
+        return arr
+    pivot = arr[len(arr) // 2]
+    left = [x for x in arr if x < pivot]
+    middle = [x for x in arr if x == pivot]
+    right = [x for x in arr if x > pivot]
+    return quicksort(left) + middle + quicksort(right)
+
+# Task: Binary search on a sorted list
+def binary_search(arr: list[int], target: int) -> int:
+    low = 0
+    high = len(arr) - 1
+    while low <= high:
+        mid = (low + high) // 2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+    return -1
+
+# Task: Object-oriented User Account manager
+class BankAccount:
+    def __init__(self, owner: str, balance: float = 0.0):
+        self.owner = owner
+        self.balance = balance
+
+    def deposit(self, amount: float) -> float:
+        if amount > 0:
+            self.balance += amount
+            print(f"Deposited ${amount:.2f}. New balance: ${self.balance:.2f}")
+        return self.balance
+
+    def withdraw(self, amount: float) -> bool:
+        if 0 < amount <= self.balance:
+            self.balance -= amount
+            print(f"Withdrew ${amount:.2f}. New balance: ${self.balance:.2f}")
+            return True
+        print("Insufficient funds or invalid amount.")
+        return False
+
+# Task: Read and write text file safely
+def write_log(filename: str, message: str) -> None:
+    with open(filename, "a", encoding="utf-8") as f:
+        f.write(message + "\n")

@@ -1,0 +1,51 @@
+// ==========================================
+// JAVASCRIPT & TYPESCRIPT DATASET
+// ==========================================
+
+// Task: Hello World in JavaScript
+console.log("Hello, World!");
+
+// Task: Async/Await REST API fetch function
+async function getUserProfile(userId) {
+    try {
+        const response = await fetch(`https://api.example.com/users/${userId}`);
+        if (!response.ok) {
+            throw new Error(`Failed to load user. HTTP status: ${response.status}`);
+        }
+        const user = await response.json();
+        return user;
+    } catch (err) {
+        console.error("Network or API error:", err);
+        return null;
+    }
+}
+
+// Task: Event listener and DOM manipulation
+function setupButton() {
+    const button = document.getElementById("submit-btn");
+    if (button) {
+        button.addEventListener("click", () => {
+            alert("Button was clicked!");
+        });
+    }
+}
+
+// Task: TypeScript interface and type-safe function
+interface Task {
+    id: number;
+    title: string;
+    completed: boolean;
+}
+
+function filterCompletedTasks(tasks: Task[]): Task[] {
+    return tasks.filter((task) => task.completed);
+}
+
+// Task: Debounce function for input handlers
+function debounce(fn, delayMs) {
+    let timeoutId;
+    return (...args) => {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => fn(...args), delayMs);
+    };
+}

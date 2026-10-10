@@ -1,0 +1,45 @@
+// ==========================================
+// C++ PROGRAMMING DATASET
+// ==========================================
+
+// Task: Hello World and modern I/O stream
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <memory>
+
+int main() {
+    std::cout << "Hello, World from C++!" << std::endl;
+    return 0;
+}
+
+// Task: Class with RAII and smart pointers
+class DatabaseConnection {
+private:
+    std::string connectionString;
+public:
+    DatabaseConnection(const std::string &conn) : connectionString(conn) {
+        std::cout << "Connected to: " << connectionString << std::endl;
+    }
+    ~DatabaseConnection() {
+        std::cout << "Closed connection to: " << connectionString << std::endl;
+    }
+    void executeQuery(const std::string &query) {
+        std::cout << "Executing SQL query: " << query << std::endl;
+    }
+};
+
+// Task: Generic Binary Search in C++
+template <typename T>
+int binarySearch(const std::vector<T> &arr, const T &target) {
+    int low = 0;
+    int high = static_cast<int>(arr.size()) - 1;
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+        if (arr[mid] == target) return mid;
+        else if (arr[mid] < target) low = mid + 1;
+        else high = mid - 1;
+    }
+    return -1;
+}
